@@ -8,27 +8,9 @@ import os
 
 DATA_DIR = Path("data")
 
-<<<<<<< HEAD
-def count_revisions(path: Path, folders: bool):
-    count = 0
-    
-    for item in os.listdir(path):
-        item_path = os.path.join(path, item)
-        
-        if os.path.isdir(item_path):
-            count += count_revisions(item_path, folders) if folders == 'False' else (count_revisions(item_path, folders) + 1) # Recursive call for subdirectories
-        else:
-            count += 1  # Increment count for files
-    
-    return count
-
-def download_page_w_revisions(page_title: str, limit: int = 100):
-    base_url = "https://en.wikipedia.org/w/index.php"
-=======
 def download_page_w_revisions(page_title: str) -> str:
     """Downloads complete revision history of a page using Special:Export with progress bar."""
     url = f"https://en.wikipedia.org/wiki/Special:Export/{page_title}"
->>>>>>> upstream/main
     params = {
         "history": "",  # Empty parameter to get full history
         "action": "submit"
